@@ -21,6 +21,7 @@ function displayTemperature(response) {
   let dateElement = document.querySelector('#date');
   let descriptionElement = document.querySelector('#description');
   let humidityElement = document.querySelector('#humidity');
+  let iconElement = document.querySelector('#icon');
   let temperatureElement = document.querySelector('#temperature');
   let windElement = document.querySelector('#wind');
   
@@ -28,9 +29,11 @@ function displayTemperature(response) {
   dateElement.innerHTML = formateDate(response.data.dt * 1000);
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`)
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   windElement.innerHTML = Math.round(response.data.wind.speed);
- };
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+};
 
 let apiKey = "1b4633177fe295b77ce7fe4928580db0";
 let city = "Rome";
