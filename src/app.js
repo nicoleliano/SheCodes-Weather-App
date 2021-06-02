@@ -35,9 +35,20 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 };
 
-let apiKey = "1b4633177fe295b77ce7fe4928580db0";
-let city = "Rome";
-let units = "imperial";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
 
-axios.get(apiUrl).then(displayTemperature);
+  search(cityInputElement.value);
+};
+
+function search(city) {
+  let apiKey = "1b4633177fe295b77ce7fe4928580db0";
+  let units = "imperial";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  
+  axios.get(apiUrl).then(displayTemperature);
+};
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
