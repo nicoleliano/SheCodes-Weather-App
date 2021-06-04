@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: arial, sans-serif;
 }
@@ -25,13 +29,13 @@ li:first-letter {
   text-transform: capitalize;
 }
 
-.overview {
-  margin-bottom: 20px;
-}
-
 ul {
   margin: 0;
   padding: 0;
+}
+
+.overview {
+  margin-bottom: 20px;
 }
 
 .weather-app {
@@ -43,6 +47,11 @@ ul {
 .weather-app-wrapper {
   margin: 30px auto;
   max-width: 600px;
+}
+
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
 }
 
 .weather-temperature img {
